@@ -1,4 +1,4 @@
-# TADA 2025 - Warsztaty - Praktyczne testowanie regresji wizualnej: Nowoczesne narzędzia i techniki
+# JIT Academy - Warsztaty - Praktyczne testowanie regresji wizualnej: Nowoczesne narzędzia i techniki
 
 **Drogi Uczestniku**,
 
@@ -8,7 +8,7 @@ W celu weryfikacji środowiska na którym będziemy pracować w takcie warsztat�
 
 ## Przydatne Linki
 
-- Notatki: : https://pastebin.com/hhKFQzX
+- Notatki: : https://docs.google.com/document/d/1WcGGLBGVzhW1flaFm3d61LUn3w9Kn1bNNruKjUPfr2o/edit?usp=sharing
   
 ## Wymagania
 
@@ -34,8 +34,8 @@ Proszę o instalację:
 
 ### Git:
 
-- Utwórz fork repozytorium: https://github.com/tklepacki/tada-vrt na swoim prywatnym koncie GITHub. Jeśli nie masz konta na GitHub, utwórz go wcześniej.
-- Sklonuj sforkowane repozytorium (ze swojego prywatnego konta) `git clone https://github.com/tklepacki/tada-vrt.git`
+- Utwórz fork repozytorium: https://github.com/tklepacki/jit-academy-vrt na swoim prywatnym koncie GITHub. Jeśli nie masz konta na GitHub, utwórz go wcześniej.
+- Sklonuj sforkowane repozytorium (ze swojego prywatnego konta) `git clone https://github.com/tklepacki/jit-academy-vrt.git`
 - Wejdź do folderu z repozytorium i upewnij się, że projekt został pobrany.
 
 ### IDE
