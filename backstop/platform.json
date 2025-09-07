@@ -1,0 +1,71 @@
+{
+  "id": "signal_ocean_platform",
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "onBeforeScript": "playwright/onBefore.js",
+  "onReadyScript": "pplaywright/onReady.js",
+  "scenarioDefaults": {
+    "misMatchThreshold": 0.1
+  },
+  "scenarios": [
+    {
+      "label": "Signal Login Page",
+      "url": "https://unstable.dev.signalocean.com/Account/Login",
+      "onReadyScript": "playwright/waitForPageLoad.js"
+    },
+    {
+      "label": "Signal Login Page - no cookie",
+      "url": "https://unstable.dev.signalocean.com/Account/Login",
+      "onReadyScript": "playwright/waitForPageLoad.js",
+      "hideSelectors": ["div.cookie-notice"]
+    },
+    {
+      "label": "Signal Login Page - Prod Reference",
+      "url": "https://unstable.dev.signalocean.com/Account/Login",
+      "referenceUrl": "https://app.signalocean.com/Account/Login",
+      "onReadyScript": "playwright/waitForPageLoad.js"
+    },
+    {
+      "label": "Signal Login Page - No Cookie Notice - Prod Reference",
+      "url": "https://unstable.dev.signalocean.com/Account/Login",
+      "onReadyScript": "playwright/waitForPageLoad.js",
+      "referenceUrl": "https://app.signalocean.com/Account/Login",
+      "hideSelectors": ["div.cookie-notice"]
+    },
+    {
+      "label": "Signal Platform - Tonnage List",
+      "url": "https://unstable.dev.signalocean.com/tanker/tonnagelist",
+      "onReadyScript": "playwright/tonnageListBasic.js",
+      "hideSelectors": [".tw-flex-shrink-0"]
+    },
+    {
+      "label": "Signal Platform - Tonnage List - Voyages",
+      "url": "https://unstable.dev.signalocean.com/tanker/tonnagelist",
+      "onReadyScript": "playwright/tonnageListVoyages.js",
+      "selectors": ["[class^=CollapsibleSidePanel_sideBar_]"]
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "playwright",
+  "engineOptions": {
+    "browser": "chromium",
+    "args": ["--no-sandbox"],
+    "headless": false
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

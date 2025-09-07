@@ -13,9 +13,12 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import './commands'
-import addContext from 'mochawesome/addContext'
+import "./commands";
+import addContext from "mochawesome/addContext";
 import path from "path";
+import { addMatchImageSnapshotCommand } from "@simonsmith/cypress-image-snapshot/command";
+
+addMatchImageSnapshotCommand();
 
 beforeEach(() => {
   cy.clearCookies();
@@ -29,8 +32,10 @@ Cypress.on("test:after:run", (test, runnable) => {
   if (test.state === "failed" && runnable) {
     const parentTitle = runnable.parent?.title || "Unknown Suite";
 
-    const safeTestTitle = `${parentTitle} -- ${test.title}`
-      .replace(/[^a-zA-Z0-9-_]/g, " ");
+    const safeTestTitle = `${parentTitle} -- ${test.title}`.replace(
+      /[^a-zA-Z0-9-_]/g,
+      " "
+    );
 
     const projectRoot = Cypress.config("projectRoot");
     const specFileName = Cypress.spec.name;
@@ -53,4 +58,11 @@ Cypress.on("test:after:run", (test, runnable) => {
     // @ts-ignore
     addContext({ test }, mochaReportPath);
   }
+});
+
+Cypress.on("uncaught:exception", (err, runnable) => {
+  if (err.message.includes("ResizeObserver loop limit exceeded")) {
+    return false;
+  }
+  return false;
 });

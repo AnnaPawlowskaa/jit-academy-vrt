@@ -8,3 +8,5 @@ declare namespace Cypress {
     waitForDomToBeReady(): Chainable<void>;
   }
 }
+
+

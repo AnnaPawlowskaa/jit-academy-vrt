@@ -1,9 +1,10 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from "cypress";
+import { addMatchImageSnapshotPlugin } from "@simonsmith/cypress-image-snapshot/plugin";
 
 export default defineConfig({
-  reporter: 'mochawesome',
+  reporter: "mochawesome",
   reporterOptions: {
-    reportDir: 'cypress/results',
+    reportDir: "cypress/results",
     overwrite: true,
     html: true,
     reportTitle: "Cypress Test Report",
@@ -12,15 +13,15 @@ export default defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
-
-      on('before:browser:launch', (browser, launchOptions) => {
+      addMatchImageSnapshotPlugin(on);
+      on("before:browser:launch", (browser, launchOptions) => {
         const width = 1600;
         const height = 900;
 
-        if (browser.name === 'electron') {
+        if (browser.name === "electron") {
           launchOptions.preferences.width = width;
           launchOptions.preferences.height = height;
-        } else if (browser.family === 'chromium') {
+        } else if (browser.family === "chromium") {
           launchOptions.args.push(`--window-size=${width},${height}`);
         }
 
@@ -30,9 +31,8 @@ export default defineConfig({
       return config;
     },
     baseUrl: "https://unstable.dev.signalocean.com",
-    specPattern: 'cypress/tests/**/*.{js,jsx,ts,tsx}',
+    specPattern: "cypress/tests/**/*.{js,jsx,ts,tsx}",
     viewportWidth: 1600,
     viewportHeight: 900,
   },
-
-})
+});

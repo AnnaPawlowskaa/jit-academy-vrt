@@ -1,0 +1,8 @@
+{
+    "apiUrl": "http://localhost:4200",
+    "apiKey": "DEFAULTUSERAPIKEYTOBECHANGED",
+    "project": "6dad5c58-d39f-423b-86de-91f5914e5d8c",
+    "branchName": "master",
+    "ciBuildId": "commit_sha",
+    "enableSoftAssert": false
+}
